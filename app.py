@@ -55,6 +55,6 @@ if __name__ == '__main__':
     detector_provider = NuRadioReco.detector.detector_browser.detector_provider.DetectorProvider()
     detector_provider.set_generic_detector('detector_description/RNO_detector.json', 101, 3, False, False)
     detector_json = json.load(open('detector_description/RNO_detector.json', 'r'))
-    app.run_server(debug=True, port=8080)
+    app.run_server()
 
 
