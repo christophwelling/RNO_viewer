@@ -13,6 +13,7 @@ import json
 import os
 
 app.title = 'Radio Neutrino Observatory in Greenland'
+server = app.server
 
 app.layout = html.Div([
     html.Div('', id='output-dummy', style={'display': 'inline'}),
