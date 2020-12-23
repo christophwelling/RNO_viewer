@@ -44,7 +44,7 @@ app.layout = html.Div([
 def download_json():
     return send_from_directory(
         os.path.dirname(os.path.abspath(__file__)),
-        filename='RNO_detector.json'
+        filename='detector_description/RNO_detector.json'
     )
 
 
@@ -53,8 +53,8 @@ if __name__ == '__main__':
         if int(dash.__version__.split('.')[1]) < 0:
             print('WARNING: Dash version 0.39.0 or newer is required, you are running version {}. Please update.'.format(dash.__version__))
     detector_provider = NuRadioReco.detector.detector_browser.detector_provider.DetectorProvider()
-    detector_provider.set_generic_detector('RNO_detector.json', 101, 3, False, False)
-    detector_json = json.load(open('RNO_detector.json', 'r'))
+    detector_provider.set_generic_detector('detector_description/RNO_detector.json', 101, 3, False, False)
+    detector_json = json.load(open('detector_description/RNO_detector.json', 'r'))
     app.run_server(debug=True, port=8080)
 
 
