@@ -14,6 +14,9 @@ import os
 
 app.title = 'Radio Neutrino Observatory in Greenland'
 server = app.server
+detector_provider = NuRadioReco.detector.detector_browser.detector_provider.DetectorProvider()
+detector_provider.set_generic_detector('detector_description/RNO_detector.json', 101, 3, False, False)
+detector_json = json.load(open('detector_description/RNO_detector.json', 'r'))
 
 app.layout = html.Div([
     html.Div('', id='output-dummy', style={'display': 'inline'}),
@@ -53,9 +56,6 @@ if __name__ == '__main__':
     if int(dash.__version__.split('.')[0]) <= 1:
         if int(dash.__version__.split('.')[1]) < 0:
             print('WARNING: Dash version 0.39.0 or newer is required, you are running version {}. Please update.'.format(dash.__version__))
-    detector_provider = NuRadioReco.detector.detector_browser.detector_provider.DetectorProvider()
-    detector_provider.set_generic_detector('detector_description/RNO_detector.json', 101, 3, False, False)
-    detector_json = json.load(open('detector_description/RNO_detector.json', 'r'))
     app.run_server()
 
 
